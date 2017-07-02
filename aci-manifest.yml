@@ -1,0 +1,4 @@
+name: cip.li/aci-alpine-base
+aci:
+  dependencies:
+    - cip.li/aci-base

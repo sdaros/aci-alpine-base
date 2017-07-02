@@ -1,0 +1,11 @@
+#!/dgr/bin/busybox sh
+set -e
+. /dgr/bin/functions.sh
+isLevelEnabled "debug" && set -x
+
+mirror=http://nl.alpinelinux.org/alpine/
+version=2.6.9-r0
+
+wget ${mirror}/v3.3/main/x86_64/apk-tools-static-${version}.apk
+tar -xzf apk-tools-static-*.apk
+./sbin/apk.static -X ${mirror}/v3.3/main -U --allow-untrusted --root ${ROOTFS} --initdb add alpine-base gnupg curl tar
